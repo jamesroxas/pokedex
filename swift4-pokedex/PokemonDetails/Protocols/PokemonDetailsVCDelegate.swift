@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol PokemonDetailsVCDelegate: class {
-    func backButtonPressed() 
+public protocol PokemonDetailsVCDelegate: class {
+    func backButtonPressed()
 }

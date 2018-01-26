@@ -9,24 +9,27 @@
 import UIKit
 import SnapKit
 
-class PokemonListView: UIView {
-    
-    let collectionView: UICollectionView = {
+public final class PokemonListView: UIView {
+
+    // MARK: Subviews
+    public let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         view.backgroundColor = UIColor.clear
         return view
     }()
-    
-    override init(frame: CGRect) {
+
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setSubviewsForAutoLayout([collectionView])
         self.collectionView.snp.remakeConstraints { (make: ConstraintMaker) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 0, 20))
+            make.top.left.equalToSuperview().offset(20.0)
+            make.right.equalToSuperview().inset(20.0)
+            make.bottom.equalToSuperview()
         }
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

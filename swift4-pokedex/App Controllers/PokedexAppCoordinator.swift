@@ -9,19 +9,21 @@
 import UIKit
 import Rapid
 
-public final class PokedexAppCoordinator: AppCoordinator<UIViewController> {
-    
-    public init(window: UIWindow, rootViewController: UINavigationController) {
+public final class PokedexAppCoordinator: AppCoordinator<UINavigationController> {
+
+    public override init(window: UIWindow, rootViewController: UINavigationController) {
         super.init(window: window, rootViewController: rootViewController)
         self.window.backgroundColor = UIColor.white
         self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
-        
+
         self.rootViewController.navigationController?.navigationBar.isTranslucent = false
     }
-    
+
     override public func start() {
-        let coordinator: PokemonListCoordinator = PokemonListCoordinator(navigationController: self.rootViewController as! UINavigationController)
+        let coordinator: PokemonListCoordinator = PokemonListCoordinator(
+            navigationController: self.rootViewController
+        )
         coordinator.start()
         self.add(childCoordinator: coordinator)
     }

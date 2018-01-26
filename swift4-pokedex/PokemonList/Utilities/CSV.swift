@@ -8,8 +8,9 @@
 
 import Foundation
 
-class CSV {
-    func readDataFrom(file:String) -> String? {
+public enum CSV {
+
+    public static func readDataFrom(file: String) -> String? {
         guard let filepath = Bundle.main.path(forResource: file, ofType: "csv")
             else {
                 return nil
@@ -22,23 +23,23 @@ class CSV {
             return nil
         }
     }
-    
-    func cleanRows(data:String) -> [[String]] {
+
+    public static func cleanRows(data: String) -> [[String]] {
         var cleanFile = data
         cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
         cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
-        
+
         var result: [[String]] = []
         let rows = cleanFile.components(separatedBy: "\n")
-        
+
         for row in rows {
             let columns = row.components(separatedBy: ",")
             result.append(columns)
         }
         return result
     }
-    
-    func data(filename:String) -> [[String]] {
+
+    public static func data(filename: String) -> [[String]] {
         let data = self.readDataFrom(file: filename)
         return cleanRows(data: data!)
     }

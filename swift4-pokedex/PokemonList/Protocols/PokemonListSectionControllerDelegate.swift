@@ -9,6 +9,6 @@
 import UIKit
 
 public protocol PokemonListSectionControllerDelegate: class {
-    
+
     func selected(pokemon: Pokemon)
 }

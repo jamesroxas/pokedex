@@ -9,42 +9,42 @@
 import Foundation
 
 public struct PokemonStatsViewModel {
-    
+
     public init(model: PokemonModels) {
         self.pokemonDetails = model.pokemonDetails
         self.pokemonSpecies = model.pokemonSpecies
         self.pokemonEvolution = model.pokemonEvolution
     }
-    
+
     // MARK: Stored Properties
     public let pokemonDetails: PokemonDetails
     public let pokemonSpecies: PokemonSpecies
     public let pokemonEvolution: PokemonEvolution
-    
-    var health: String {
-        return self.pokemonDetails.stats[5].stat.name
+
+    public var health: String {
+        return self.pokemonDetails.stats[5].stat.name.capitalized
     }
-    
-    var attack: String {
-        return self.pokemonDetails.stats[4].stat.name
+
+    public var attack: String {
+        return self.pokemonDetails.stats[4].stat.name.capitalized
     }
-    
-    var defense: String {
-        return self.pokemonDetails.stats[3].stat.name
+
+    public var defense: String {
+        return self.pokemonDetails.stats[3].stat.name.capitalized
     }
-    
-    var specialAttack: String {
-        return self.pokemonDetails.stats[2].stat.name
+
+    public var specialAttack: String {
+        return self.pokemonDetails.stats[2].stat.name.capitalized
     }
-    
-    var specialDefense: String {
-        return self.pokemonDetails.stats[1].stat.name
+
+    public var specialDefense: String {
+        return self.pokemonDetails.stats[1].stat.name.capitalized
     }
-    
-    var speed: String {
-        return self.pokemonDetails.stats[0].stat.name
+
+    public var speed: String {
+        return self.pokemonDetails.stats[0].stat.name.capitalized
     }
-    
+
     var stats: [Stats] {
         return pokemonDetails.stats.reversed()
     }

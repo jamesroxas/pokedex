@@ -8,137 +8,154 @@
 
 import UIKit
 
-extension UIColor {
-    func pokemonColor(type: String) -> UIColor {
-        switch type {
-        case "normal":
+public enum PokemonType: String {
+    case normal
+    case fire
+    case water
+    case electric
+    case grass
+    case ice
+    case fighting
+    case poison
+    case ground
+    case flying
+    case psychic
+    case bug
+    case rock
+    case ghost
+    case dragon
+    case dark
+    case steel
+    case fairy
+
+    public var color: UIColor {
+        switch self {
+        case .normal:
             return UIColor(
                 red: 168.0/255.0,
                 green: 167.0/255.0,
                 blue: 122.0/255.0,
                 alpha: 1.0
             )
-        case "fire":
+        case .fire:
             return UIColor(
                 red: 238.0/255.0,
                 green: 129.0/255.0,
                 blue: 48.0/255.0,
                 alpha: 1.0
             )
-        case "water":
+        case .water:
             return UIColor(
                 red: 99.0/255.0,
                 green: 144.0/255.0,
                 blue: 240.0/255.0,
                 alpha: 1.0
             )
-        case "electric":
+        case .electric:
             return UIColor(
                 red: 247.0/255.0,
                 green: 208.0/255.0,
                 blue: 44.0/255.0,
                 alpha: 1.0
             )
-        case "grass":
+        case .grass:
             return UIColor(
                 red: 122.0/255.0,
                 green: 208.0/255.0,
                 blue: 44.0/255.0,
                 alpha: 1.0
             )
-        case "ice":
+        case .ice:
             return UIColor(
                 red: 150.0/255.0,
                 green: 217.0/255.0,
                 blue: 214.0/255.0,
                 alpha: 1.0
             )
-        case "fighting":
+        case .fighting:
             return UIColor(
                 red: 194.0/255.0,
                 green: 46.0/255.0,
                 blue: 40.0/255.0,
                 alpha: 1.0
             )
-        case "poison":
+        case .poison:
             return UIColor(
                 red: 163.0/255.0,
                 green: 62.0/255.0,
                 blue: 161.0/255.0,
                 alpha: 1.0
             )
-        case "ground":
+        case .ground:
             return UIColor(
                 red: 226.0/255.0,
                 green: 191.0/255.0,
                 blue: 101.0/255.0,
                 alpha: 1.0
             )
-        case "flying":
+        case .flying:
             return UIColor(
                 red: 169.0/255.0,
                 green: 143.0/255.0,
                 blue: 243.0/255.0,
                 alpha: 1.0
             )
-        case "psychic":
+        case .psychic:
             return UIColor(
                 red: 249.0/255.0,
                 green: 85.0/255.0,
                 blue: 135.0/255.0,
                 alpha: 1.0
             )
-        case "bug":
+        case .bug:
             return UIColor(
                 red: 166.0/255.0,
                 green: 185.0/255.0,
                 blue: 26.0/255.0,
                 alpha: 1.0
             )
-        case "rock":
+        case .rock:
             return UIColor(
                 red: 182.0/255.0,
                 green: 161.0/255.0,
                 blue: 54.0/255.0,
                 alpha: 1.0
             )
-        case "ghost":
+        case .ghost:
             return UIColor(
                 red: 115.0/255.0,
                 green: 87.0/255.0,
                 blue: 151.0/255.0,
                 alpha: 1.0
             )
-        case "dragon":
+        case .dragon:
             return UIColor(
                 red: 111.0/255.0,
                 green: 53.0/255.0,
                 blue: 252.0/255.0,
                 alpha: 1.0
             )
-        case "dark":
+        case .dark:
             return UIColor(
                 red: 112.0/255.0,
                 green: 87.0/255.0,
                 blue: 70.0/255.0,
                 alpha: 1.0
             )
-        case "steel":
+        case .steel:
             return UIColor(
                 red: 183.0/255.0,
                 green: 183.0/255.0,
                 blue: 206.0/255.0,
                 alpha: 1.0
             )
-        case "fairy":
+        case .fairy:
             return UIColor(
                 red: 217.0/255.0,
                 green: 133.0/255.0,
                 blue: 173.0/255.0,
                 alpha: 1.0
             )
-        default:
-            return UIColor.black
         }
     }
 }

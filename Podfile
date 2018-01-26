@@ -16,7 +16,7 @@ target 'swift4-pokedex' do
   pod 'SnapKit'
   pod 'IGListKit', :inhibit_warnings => true
   pod 'Rapid', :git => 'https://github.com/hooliooo/Rapid.git'
-  
+
 
   target 'swift4-pokedexTests' do
     inherit! :search_paths

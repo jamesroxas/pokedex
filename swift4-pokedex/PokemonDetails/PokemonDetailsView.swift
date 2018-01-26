@@ -20,7 +20,7 @@ class PokemonDetailsView: UIView {
         button.tintColor = UIColor.white
         return button
     }()
-    
+
     let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: [
             "Description",
@@ -30,7 +30,7 @@ class PokemonDetailsView: UIView {
         segmentedControl.selectedSegmentIndex = 0
         return segmentedControl
     }()
-    
+
     let pokemonNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Pokemon"
@@ -40,7 +40,7 @@ class PokemonDetailsView: UIView {
         label.font = UIFont.systemFont(ofSize: 18.0)
         return label
     }()
-    
+
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -51,11 +51,11 @@ class PokemonDetailsView: UIView {
         view.isPagingEnabled = true
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setSubviewsForAutoLayout([segmentedControl, collectionView])
-        
+
         self.segmentedControl.snp.remakeConstraints { (make: ConstraintMaker) in
             make.top.equalToSuperview().offset(80.0)
             make.centerX.equalToSuperview()
@@ -63,13 +63,13 @@ class PokemonDetailsView: UIView {
             make.trailing.equalToSuperview().inset(20.0)
             make.height.equalTo(30.0)
         }
-        
+
         self.collectionView.snp.remakeConstraints { (make: ConstraintMaker) in
             make.top.equalTo(self.segmentedControl.snp.bottom).offset(10.0)
             make.left.right.bottom.equalToSuperview()
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

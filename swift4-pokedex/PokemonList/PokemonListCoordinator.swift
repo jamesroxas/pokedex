@@ -12,50 +12,33 @@ import Result
 import FSwiftNetworking
 
 public class PokemonListCoordinator: AbstractCoordinator {
-    
-    //MARK: Delagate Properties
-    let pokemonListService: PokemonListService = PokemonListService()
-    
-    //MARK: Initializer
-    init(navigationController: UINavigationController) {
+
+    // MARK: Delagate Properties
+    private let pokemonListService: PokemonListService = PokemonListService()
+
+    // MARK: Initializer
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         super.init()
     }
-    
-    //MARK: Stored Properties
+
+    // MARK: Stored Properties
     private unowned let navigationController: UINavigationController
-    
-    //MARK: Computed Properties
-    
-    //MARK: Instance Methods
+
+    // MARK: Computed Properties
+
+    // MARK: Instance Methods
     public override func start() {
         let vc: PokemonListVC = PokemonListVC(delegate: self, navigationController: self.navigationController)
         self.navigationController.pushViewController(vc, animated: true)
     }
-    
+
 }
 
 extension PokemonListCoordinator: PokemonListVCDelegate {
-    func pokemonTapped(pokemon: Pokemon) {
+    public func pokemonTapped(pokemon: Pokemon) {
         self.pokemonListService.getPokemonDetailData(with: pokemon.id)
             .onSuccess { (pokemonModels: PokemonModels) in
-                pokemonModels.pokemonDetails.stats.forEach({ (pokemon) in
-                    print("\(pokemon.stat.name): \(pokemon.baseStat)")
-                })
-                
-                var pokemonTypes = [String]()
-                
-                pokemonModels.pokemonDetails.types.forEach({ (pokemon) in
-                    pokemonTypes.append(pokemon.type.name)
-                })
-                print("Type: \(pokemonTypes.joined(separator: "/"))")
-                
-                pokemonModels.pokemonEvolution.pokemonEvolutionNodes.forEach({ (pokemonNodes) in
-                    print(pokemonNodes.id)
-                    print(pokemonNodes.name)
-                })
-                
-                
                 DispatchQueue.main.async {
                     let coordinator: PokemonDetailsCoordinator = PokemonDetailsCoordinator(
                         delegate: self,
@@ -65,9 +48,9 @@ extension PokemonListCoordinator: PokemonListVCDelegate {
                     coordinator.start()
                     self.add(childCoordinator: coordinator)
                 }
-                
+
         }
-        
+
     }
 }
 
@@ -76,8 +59,5 @@ extension PokemonListCoordinator: PokemonDetailsCoordinatorDelegate {
         self.remove(childCoordinator: coordinator)
         self.navigationController.navigationBar.barTintColor = UIColor.red
     }
-    
-    
+
 }
-
-

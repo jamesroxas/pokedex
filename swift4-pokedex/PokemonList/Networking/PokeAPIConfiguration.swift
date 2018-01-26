@@ -10,23 +10,23 @@ import Foundation
 import FSwiftNetworking
 
 struct PokeAPIConfiguration: RequestConfiguration {
-    
+
     var scheme: URLScheme {
         return URLScheme.http
     }
-    
+
     var host: String {
         return "pokeapi.co"
     }
-    
+
     var basePathComponents: [String] {
         return [
             "api",
             "v2"
         ]
     }
-    
-    var baseHeaders: [String : Any] {
+
+    var baseHeaders: [String: Any] {
         return [
             "Content-Type": "application/json"
         ]

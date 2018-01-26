@@ -19,6 +19,7 @@
 		774A6D77201B044C00462013 /* PokemonDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A6D76201B044C00462013 /* PokemonDescriptionViewModel.swift */; };
 		774A6D7A201B24F900462013 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A6D79201B24F900462013 /* PokemonListViewModel.swift */; };
 		774A6D7C201B2A1A00462013 /* PokemonStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A6D7B201B2A1A00462013 /* PokemonStatsViewModel.swift */; };
+		774A6D7F201B4B4200462013 /* PokemonStatColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A6D7E201B4B4200462013 /* PokemonStatColor.swift */; };
 		774ACA03200F119500D9F069 /* PokemonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774ACA02200F119500D9F069 /* PokemonListCell.swift */; };
 		774ACA07200F148F00D9F069 /* PokemonListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774ACA06200F148F00D9F069 /* PokemonListVC.swift */; };
 		774ACA09200F2DB400D9F069 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774ACA08200F2DB400D9F069 /* UIViewExtension.swift */; };
@@ -86,6 +87,7 @@
 		774A6D76201B044C00462013 /* PokemonDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDescriptionViewModel.swift; sourceTree = "<group>"; };
 		774A6D79201B24F900462013 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
 		774A6D7B201B2A1A00462013 /* PokemonStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewModel.swift; sourceTree = "<group>"; };
+		774A6D7E201B4B4200462013 /* PokemonStatColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatColor.swift; sourceTree = "<group>"; };
 		774ACA02200F119500D9F069 /* PokemonListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCell.swift; sourceTree = "<group>"; };
 		774ACA06200F148F00D9F069 /* PokemonListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListVC.swift; sourceTree = "<group>"; };
 		774ACA08200F2DB400D9F069 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 		771C37872010720100AACB4F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				771C378A20107BD600AACB4F /* pokemon.csv */,
 				771C37912010969400AACB4F /* CSV.swift */,
 			);
 			path = Utilities;
@@ -218,6 +219,7 @@
 				774ACA08200F2DB400D9F069 /* UIViewExtension.swift */,
 				774F7B522019ED05006CF9B9 /* UIColorExtension.swift */,
 				774A6D74201B031D00462013 /* UIStringExtension.swift */,
+				774A6D7E201B4B4200462013 /* PokemonStatColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,12 +260,12 @@
 				776D18A02011882100F732AA /* Networking */,
 				771C378D20107CA200AACB4F /* Models */,
 				771C3790201085F600AACB4F /* Protocols */,
-				774ACA02200F119500D9F069 /* PokemonListCell.swift */,
-				774ACA11200F53E000D9F069 /* PokemonListView.swift */,
-				774ACA06200F148F00D9F069 /* PokemonListVC.swift */,
 				776D18A72011BE3900F732AA /* PokemonListCoordinator.swift */,
+				774ACA06200F148F00D9F069 /* PokemonListVC.swift */,
 				771C37882010783600AACB4F /* PokemonListDataSource.swift */,
 				774ACA0F200F51C300D9F069 /* PokemonListSectionController.swift */,
+				774ACA11200F53E000D9F069 /* PokemonListView.swift */,
+				774ACA02200F119500D9F069 /* PokemonListCell.swift */,
 				771C37872010720100AACB4F /* Utilities */,
 			);
 			path = PokemonList;
@@ -357,6 +359,7 @@
 		77E061B9200DCB60002A32B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				771C378A20107BD600AACB4F /* pokemon.csv */,
 				77E0618B200DC152002A32B4 /* LaunchScreen.storyboard */,
 				77E06189200DC152002A32B4 /* Assets.xcassets */,
 				77E0618E200DC152002A32B4 /* Info.plist */,
@@ -400,6 +403,7 @@
 				77E0617D200DC151002A32B4 /* Resources */,
 				6B3EC2807F5F88F9A8A37A1B /* [CP] Embed Pods Frameworks */,
 				0DA17B8464D7F741A133A158 /* [CP] Copy Pods Resources */,
+				774A6D7D201B33B200462013 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -593,6 +597,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift4-pokedex/Pods-swift4-pokedex-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		774A6D7D201B33B200462013 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		86875890FAFCC7EC9335D088 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -718,6 +736,7 @@
 				774A6D7A201B24F900462013 /* PokemonListViewModel.swift in Sources */,
 				774F7B532019ED05006CF9B9 /* UIColorExtension.swift in Sources */,
 				774A6D77201B044C00462013 /* PokemonDescriptionViewModel.swift in Sources */,
+				774A6D7F201B4B4200462013 /* PokemonStatColor.swift in Sources */,
 				7764F24520182FCD006A8D09 /* PokemonEvolutionChainRequest.swift in Sources */,
 				776D18A22011884800F732AA /* PokeAPIConfiguration.swift in Sources */,
 				774ACA12200F53E000D9F069 /* PokemonListView.swift in Sources */,

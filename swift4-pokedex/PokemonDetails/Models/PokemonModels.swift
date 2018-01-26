@@ -9,7 +9,7 @@
 import Foundation
 
 public struct PokemonModels {
-    
+
     public let pokemonDetails: PokemonDetails
     public let pokemonSpecies: PokemonSpecies
     public let pokemonEvolution: PokemonEvolution

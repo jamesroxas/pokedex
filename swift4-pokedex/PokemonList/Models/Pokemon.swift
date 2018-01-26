@@ -16,7 +16,7 @@ public class Pokemon: JAObject {
     var height: String
     var weight: String
     var image: UIImage
-    
+
     init(id: Int, name: String, height: String, weight: String) {
         self.id = id
         self.name = name.uppercasedFirstLetter
@@ -32,7 +32,7 @@ extension Pokemon: ListDiffable {
     }
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let object = object as? Pokemon else { return false }
-        
+
         return self.id == object.id && self.name == object.name && self.height == object.height && self.weight == object.weight
     }
 }

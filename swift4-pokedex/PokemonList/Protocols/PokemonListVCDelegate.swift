@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PokemonListVCDelegate: class {
+public protocol PokemonListVCDelegate: class {
     func pokemonTapped(pokemon: Pokemon)
 }

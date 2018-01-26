@@ -10,64 +10,65 @@ import UIKit
 import Rapid
 import SnapKit
 
-public class PokemonDetailsStatsCell: UICollectionViewCell {
-    
-    let pokemonHealthPlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+public final class PokemonDetailsStatsCell: UICollectionViewCell {
+
+    // MARK: Subviews
+    private let pokemonHealthPlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
-    let pokemonAttackPlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+
+    private let pokemonAttackPlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
-    let pokemonDefensePlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+
+    private let pokemonDefensePlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
-    let pokemonSpecialAttackPlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+
+    private let pokemonSpecialAttackPlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
-    let pokemonSpecialDefensePlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+
+    private let pokemonSpecialDefensePlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
-    let pokemonSpeedPlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.left
-        return label
+
+    private let pokemonSpeedPlaceholderLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14.0)
+        view.textColor = UIColor.black
+        view.backgroundColor = UIColor.clear
+        view.textAlignment = NSTextAlignment.left
+        return view
     }()
-    
+
     fileprivate lazy var labelsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
+        let view = UIStackView(arrangedSubviews: [
             self.pokemonHealthPlaceholderLabel,
             self.pokemonAttackPlaceholderLabel,
             self.pokemonDefensePlaceholderLabel,
@@ -76,63 +77,63 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
             self.pokemonSpeedPlaceholderLabel
             ]
         )
-        stackView.axis = UILayoutConstraintAxis.vertical
-        stackView.distribution = UIStackViewDistribution.fillEqually
-        stackView.alignment = UIStackViewAlignment.fill
-        stackView.spacing = 2.0
-        return stackView
+        view.axis = UILayoutConstraintAxis.vertical
+        view.distribution = UIStackViewDistribution.fillEqually
+        view.alignment = UIStackViewAlignment.fill
+        view.spacing = 2.0
+        return view
     }()
-    
+
     fileprivate lazy var pokemonTitleLabels: [UILabel] = {
-        var labels: [UILabel] = [
+        var view: [UILabel] = [
             self.pokemonHealthPlaceholderLabel, self.pokemonAttackPlaceholderLabel,
             self.pokemonDefensePlaceholderLabel, self.pokemonSpecialAttackPlaceholderLabel,
             self.pokemonSpecialDefensePlaceholderLabel, self.pokemonSpeedPlaceholderLabel
         ]
-        return labels
-    }()
-    
-    let pokemonHealthStatBarView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.red
         return view
     }()
-    
-    let pokemonAttackStatBarView: UIView = {
+
+    private let pokemonHealthStatBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = PokemonStatColor.hp
         return view
     }()
-    
-    let pokemonDefenseStatBarView: UIView = {
+
+    private let pokemonAttackStatBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.green
+        view.backgroundColor = PokemonStatColor.atk
         return view
     }()
-    
-    let pokemonSpecialAttackStatBarView: UIView = {
+
+    private let pokemonDefenseStatBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = PokemonStatColor.def
         return view
     }()
-    
-    let pokemonSpecialDefenseStatBarView: UIView = {
+
+    private let pokemonSpecialAttackStatBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = PokemonStatColor.spAtk
         return view
     }()
-    
-    let pokemonSpeedStatBarView: UIView = {
+
+    private let pokemonSpecialDefenseStatBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.green
+        view.backgroundColor = PokemonStatColor.spDef
         return view
     }()
-    
+
+    private let pokemonSpeedStatBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = PokemonStatColor.spd
+        return view
+    }()
+
     private var barMaxWidth: CGFloat {
         let viewWidth = self.bounds.width
         return (viewWidth - 220) / 200
     }
-    
+
     fileprivate lazy var pokemonStatBarViews: [UIView] = {
         var views: [UIView] = [
             self.pokemonHealthStatBarView, self.pokemonAttackStatBarView,
@@ -141,8 +142,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         ]
         return views
     }()
-    
-    let pokemonHealthStatValueLabel: UILabel = {
+
+    private let pokemonHealthStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -150,8 +151,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    let pokemonAttackStatValueLabel: UILabel = {
+
+    private let pokemonAttackStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -159,8 +160,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    let pokemonDefenseStatValueLabel: UILabel = {
+
+    private let pokemonDefenseStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -168,8 +169,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    let pokemonSpecialAttackStatValueLabel: UILabel = {
+
+    private let pokemonSpecialAttackStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -177,8 +178,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    let pokemonSpecialDefenseStatValueLabel: UILabel = {
+
+    private let pokemonSpecialDefenseStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -186,8 +187,8 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    let pokemonSpeedStatValueLabel: UILabel = {
+
+    private let pokemonSpeedStatValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.black
@@ -195,17 +196,16 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.left
         return label
     }()
-    
-    fileprivate lazy var pokemonStatValueLabels: [UILabel] = {
-        var labels: [UILabel] = [
+
+    private lazy var pokemonStatValueLabels: [UILabel] = {
+        return [
             self.pokemonHealthStatValueLabel, self.pokemonAttackStatValueLabel,
             self.pokemonDefenseStatValueLabel, self.pokemonSpecialAttackStatValueLabel,
             self.pokemonSpecialDefenseStatValueLabel, self.pokemonSpeedStatValueLabel
         ]
-        return labels
     }()
-    
-    override init(frame: CGRect) {
+
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setSubviewsForAutoLayout([
             self.labelsStackView,
@@ -223,14 +223,14 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
             self.pokemonSpeedStatValueLabel
             ]
         )
-        
+
         self.labelsStackView.snp.remakeConstraints { (make: ConstraintMaker) in
             make.top.equalToSuperview().offset(20)
             make.leading.equalToSuperview().offset(20)
             make.width.equalTo(125.0)
             make.height.equalTo(200.0)
         }
-        
+
         for (statBarView, titleLabel) in zip(self.pokemonStatBarViews, self.pokemonTitleLabels) {
             statBarView.snp.remakeConstraints({ (make: ConstraintMaker) in
                 make.leading.equalTo(labelsStackView.snp.trailing).offset(10.0)
@@ -239,7 +239,7 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
                 make.width.equalTo(200.0)
             })
         }
-        
+
         for (statValueLabel, statBarView) in zip(self.pokemonStatValueLabels, self.pokemonStatBarViews) {
             statValueLabel.snp.remakeConstraints({ (make: ConstraintMaker) in
                 make.leading.equalTo(statBarView.snp.trailing).offset(10.0)
@@ -247,7 +247,7 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
                 make.height.equalTo(statBarView)
             })
         }
-        
+
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -256,9 +256,9 @@ public class PokemonDetailsStatsCell: UICollectionViewCell {
 
 extension PokemonDetailsStatsCell: Configurable {
     public static var identifier: String = "PokemonDetailsStatsCell"
-    
+
     public func configure(with viewModel: PokemonStatsViewModel) {
-        
+
         for (statValueLabel, pokemonStat) in zip(self.pokemonStatValueLabels, viewModel.pokemonDetails.stats.reversed()) {
             statValueLabel.text = String(pokemonStat.baseStat)
         }
@@ -270,12 +270,12 @@ extension PokemonDetailsStatsCell: Configurable {
         self.pokemonSpeedPlaceholderLabel.text = viewModel.speed
         for (statBarView, pokemonStat) in zip(self.pokemonStatBarViews, viewModel.stats) {
             statBarView.snp.updateConstraints({ (make: ConstraintMaker) in
-                
+
                 let compute: CGFloat = (((CGFloat(pokemonStat.baseStat)) / 200.0) * self.barMaxWidth) * 100
                 make.width.equalTo(compute)
             })
-            
+
         }
-    
+
     }
 }

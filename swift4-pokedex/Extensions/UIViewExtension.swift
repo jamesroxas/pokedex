@@ -9,12 +9,12 @@
 import UIKit
 
 extension UIView {
-    
+
     internal func setSubviewForAutoLayout(_ subview: UIView) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subview)
     }
-    
+
     internal func setSubviewsForAutoLayout(_ subviews: [UIView]) {
         _ = subviews.map { self.setSubviewForAutoLayout($0) }
     }
